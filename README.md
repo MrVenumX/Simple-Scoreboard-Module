@@ -42,3 +42,16 @@ export function removeScore(playerName, objectiveName, Count) {
   } catch (error) {console.error(`setScore Error : ${error}`)}
 }
 ```
+
+<h2>How To Use</h2>
+Import Module Like This
+```js
+import { getScore } from "scoreboards.js";
+import { world } from "mojang-mineraft";
+
+world.events.beforeChat.subscribe((eventData) => {
+  if (eventData.message == "#check") {
+    eventData.cancel = true;
+    console.log(`Your Money : ${getScore(eventData.sender.name, 'Money')}`)
+  }
+});```
